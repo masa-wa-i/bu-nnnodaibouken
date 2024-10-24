@@ -20,10 +20,10 @@ let key = {
   back_to_select_stages: false,
 };
 let key_code = {
-  up: 87,
-  down: 83,
-  right: 68,
-  left: 65,
+  up: [38, 87],
+  down: [40, 83],
+  right: [39, 68],
+  left: [37, 65],
   ok: 32,
   back: 66,
   shift: 16,
@@ -884,10 +884,18 @@ function main() {
 requestAnimationFrame(main);
 
 window.onkeydown = function (e) {
-  if (e.keyCode == key_code.up) key.up = true;
-  if (e.keyCode == key_code.down) key.down = true;
-  if (e.keyCode == key_code.right) key.right = true;
-  if (e.keyCode == key_code.left) key.left = true;
+  for (let i = 0; i < key_code.up.length; i++) {
+    if (e.keyCode == key_code.up[i]) key.up = true;
+  }
+  for (let i = 0; i < key_code.down.length; i++) {
+    if (e.keyCode == key_code.down[i]) key.down = true;
+  }
+  for (let i = 0; i < key_code.right.length; i++) {
+    if (e.keyCode == key_code.right[i]) key.right = true;
+  }
+  for (let i = 0; i < key_code.left.length; i++) {
+    if (e.keyCode == key_code.left[i]) key.left = true;
+  }
   if (e.keyCode == key_code.ok) key.ok = true;
   if (e.keyCode == key_code.back) key.back = true;
   if (e.keyCode == key_code.shift) key.shift = true;
@@ -896,10 +904,18 @@ window.onkeydown = function (e) {
   if (e.keyCode == key_code.back_to_title) key.back_to_select_stages = true;
 };
 window.onkeyup = function (e) {
-  if (e.keyCode == key_code.up) key.up = false;
-  if (e.keyCode == key_code.down) key.down = false;
-  if (e.keyCode == key_code.right) key.right = false;
-  if (e.keyCode == key_code.left) key.left = false;
+  for (let i = 0; i < key_code.up.length; i++) {
+    if (e.keyCode == key_code.up[i]) key.up = false;
+  }
+  for (let i = 0; i < key_code.down.length; i++) {
+    if (e.keyCode == key_code.down[i]) key.down = false;
+  }
+  for (let i = 0; i < key_code.right.length; i++) {
+    if (e.keyCode == key_code.right[i]) key.right = false;
+  }
+  for (let i = 0; i < key_code.left.length; i++) {
+    if (e.keyCode == key_code.left[i]) key.left = false;
+  }
   if (e.keyCode == key_code.ok) key.ok = false;
   if (e.keyCode == key_code.back) key.back = false;
   if (e.keyCode == key_code.shift) key.shift = false;
